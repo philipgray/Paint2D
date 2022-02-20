@@ -101,32 +101,19 @@ public class Drawing extends JPanel {
      */
     private class MouseHandler extends MouseAdapter {
 
-        // might be an issue
-        public void mouseClicked(MouseEvent event) {
+        public void mousePressed(MouseEvent event) {
             clickX = event.getX();
-            clickY =  event.getY();
+            clickY = event.getY();
+            // Adds a MouseMotionListener, so we can track where we are going.
 
             if (state.equals("rect") || state.equals("circle")) {
-                 createShape(graphics, state, clickX, clickY);
+                createShape(graphics, state, clickX, clickY);
+            } else {
+                addMouseMotionListener(this);
             }
         }
 
         /**
-        public void mousePressed(MouseEvent event) {
-            this.startX = event.getX();
-            this.startY = event.getY();
-            System.out.println("Started at X: "+this.startX+" Y: "+this.startY);
-
-            // Adds a MouseMotionListener, so we can track where we are going.
-
-            if (state.equals("rect") || state.equals("circle")) {
-                repaint();
-            }
-
-            addMouseMotionListener(this);
-        }
-
-
          * mouseDragged might seem unimportant when we have mouseReleased,
          * however if we're trying to freeform draw or have some sort of
          * shape to visualize what size shape / item you're building, we
