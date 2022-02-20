@@ -209,70 +209,125 @@ public class D2 extends JPanel {
         panel.add(openbutton);
         openbutton.setBackground(Color.white);
 
-        JButton linebutton = new JButton("");
-        linebutton.setBounds(cpx, 30, 20, 20);
-        panel.add(linebutton);
-        linebutton.setBackground(Color.red);
+        JButton redButton = new JButton("");
+        redButton.setBounds(cpx, 30, 20, 20);
+        panel.add(redButton);
+        redButton.setBackground(Color.RED);
 
-        JButton orangebutton = new JButton("");
-        orangebutton.setBounds(cpx + 25, 30, 20, 20);
-        panel.add(orangebutton);
-        orangebutton.setBackground(Color.orange);
+        redButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Red");
+            drawingPanel.updateColor(Color.RED);
+        });
 
-        JButton yellowbutton = new JButton("");
-        yellowbutton.setBounds(cpx + 50, 30, 20, 20);
-        panel.add(yellowbutton);
-        yellowbutton.setBackground(Color.yellow);
+        JButton orangeButton = new JButton("");
+        orangeButton.setBounds(cpx + 25, 30, 20, 20);
+        panel.add(orangeButton);
+        orangeButton.setBackground(Color.ORANGE);
 
-        JButton greenbutton = new JButton("");
-        greenbutton.setBounds(cpx + 75, 30, 20, 20);
-        panel.add(greenbutton);
-        greenbutton.setBackground(Color.green);
+        orangeButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Orange");
+            drawingPanel.updateColor(Color.ORANGE);
+        });
 
-        JButton bluebutton = new JButton("");
-        bluebutton.setBounds(cpx + 100, 30, 20, 20);
-        panel.add(bluebutton);
-        bluebutton.setBackground(Color.blue);
+        JButton yellowButton = new JButton("");
+        yellowButton.setBounds(cpx + 50, 30, 20, 20);
+        panel.add(yellowButton);
+        yellowButton.setBackground(Color.YELLOW);
 
-        JButton magentabutton = new JButton("");
-        magentabutton.setBounds(cpx + 125, 30, 20, 20);
-        panel.add(magentabutton);
-        magentabutton.setBackground(Color.magenta);
+        yellowButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Yellow");
+            drawingPanel.updateColor(Color.YELLOW);
+        });
 
-        JButton pinkbutton = new JButton("");
-        pinkbutton.setBounds(cpx, 55, 20, 20);
-        panel.add(pinkbutton);
-        pinkbutton.setBackground(Color.pink);
+        JButton greenButton = new JButton("");
+        greenButton.setBounds(cpx + 75, 30, 20, 20);
+        panel.add(greenButton);
+        greenButton.setBackground(Color.GREEN);
 
-        JButton whitebutton = new JButton("");
-        whitebutton.setBounds(cpx+25, 55, 20, 20);
-        panel.add(whitebutton);
-        whitebutton.setBackground(Color.white);
+        greenButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Green");
+            drawingPanel.updateColor(Color.GREEN);
+        });
 
-        JButton blackbutton = new JButton("");
-        blackbutton.setBounds(cpx+50, 55, 20, 20);
-        panel.add(blackbutton);
-        blackbutton.setBackground(Color.black);
+        JButton blueButton = new JButton("");
+        blueButton.setBounds(cpx + 100, 30, 20, 20);
+        panel.add(blueButton);
+        blueButton.setBackground(Color.BLUE);
 
-        blackbutton.addActionListener(e -> {
+        blueButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Blue");
+            drawingPanel.updateColor(Color.BLUE);
+        });
+
+        JButton magentaButton = new JButton("");
+        magentaButton.setBounds(cpx + 125, 30, 20, 20);
+        panel.add(magentaButton);
+        magentaButton.setBackground(Color.MAGENTA);
+
+        magentaButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Magenta");
+            drawingPanel.updateColor(Color.MAGENTA);
+        });
+
+        JButton pinkButton = new JButton("");
+        pinkButton.setBounds(cpx, 55, 20, 20);
+        panel.add(pinkButton);
+        pinkButton.setBackground(Color.PINK);
+
+        pinkButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Pink");
+            drawingPanel.updateColor(Color.PINK);
+        });
+
+        JButton whiteButton = new JButton("");
+        whiteButton.setBounds(cpx+25, 55, 20, 20);
+        panel.add(whiteButton);
+        whiteButton.setBackground(Color.WHITE);
+
+        whiteButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: White");
+            drawingPanel.updateColor(Color.WHITE);
+        });
+
+        JButton blackButton = new JButton("");
+        blackButton.setBounds(cpx+50, 55, 20, 20);
+        panel.add(blackButton);
+        blackButton.setBackground(Color.BLACK);
+
+        blackButton.addActionListener(e -> {
             toolStateMessage.updateText("Color Selected: Black");
             drawingPanel.updateColor(Color.BLACK);
         });
 
-        JButton graybutton = new JButton("");
-        graybutton.setBounds(cpx+75, 55, 20, 20);
-        panel.add(graybutton);
-        graybutton.setBackground(Color.gray);
+        JButton grayButton = new JButton("");
+        grayButton.setBounds(cpx+75, 55, 20, 20);
+        panel.add(grayButton);
+        grayButton.setBackground(Color.GRAY);
 
-        JButton cyanbutton = new JButton("");
-        cyanbutton.setBounds(cpx+100, 55, 20, 20);
-        panel.add(cyanbutton);
-        cyanbutton.setBackground(Color.cyan);
+        grayButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Gray");
+            drawingPanel.updateColor(Color.GRAY);
+        });
 
-        JButton lightGraybutton = new JButton("");
-        lightGraybutton.setBounds(cpx+125, 55, 20, 20);
-        panel.add(lightGraybutton);
-        lightGraybutton.setBackground(Color.lightGray);
+        JButton cyanButton = new JButton("");
+        cyanButton.setBounds(cpx+100, 55, 20, 20);
+        panel.add(cyanButton);
+        cyanButton.setBackground(Color.CYAN);
+
+        cyanButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Cyan");
+            drawingPanel.updateColor(Color.CYAN);
+        });
+
+        JButton lightGrayButton = new JButton("");
+        lightGrayButton.setBounds(cpx+125, 55, 20, 20);
+        panel.add(lightGrayButton);
+        lightGrayButton.setBackground(Color.LIGHT_GRAY);
+
+        lightGrayButton.addActionListener(e -> {
+            toolStateMessage.updateText("Color Selected: Light Gray");
+            drawingPanel.updateColor(Color.LIGHT_GRAY);
+        });
 
 
         /**
