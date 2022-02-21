@@ -1,9 +1,13 @@
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 // ferris
@@ -33,6 +37,8 @@ import java.awt.Graphics;
 public class D2 extends JPanel {
     String state = "circle";
     Color currentColor;
+    int drawingHeight;
+    int drawingWidth;
 
     int shapeWidth = 50;
     int shapeLength = 50;
@@ -40,12 +46,14 @@ public class D2 extends JPanel {
     Graphics2D graphics;
     ArrayList<Shape> shapes;
     ArrayList<Color> colors;
+    BufferedImage img;
+
 
     int clickX;
     int clickY;
 
     public D2() {
-        setPreferredSize(new Dimension(500, 500)); // Apparently JPanel uses a layout manager and this let's the manager handle things?
+        //setPreferredSize(new Dimension(500, 500)); // Apparently JPanel uses a layout manager and this let's the manager handle things?
         this.shapes = new ArrayList<>();
         this.colors = new ArrayList<>();
         // setSize(); // Which is why you don't want to use this.
@@ -63,6 +71,7 @@ public class D2 extends JPanel {
             graphics.setColor(colors.get(i)); // set border color
             graphics.fill(shapes.get(i)); // fills the shape
         }
+
     }
 
 
@@ -89,6 +98,18 @@ public class D2 extends JPanel {
 
     public void updateColor(Color newColor) {
         this.currentColor = newColor;
+    }
+
+    public void saveImage() {
+        BufferedImage img = new BufferedImage(875, 580, BufferedImage.TYPE_INT_RGB);
+
+        try {
+            paintComponent(img.createGraphics());
+            File output = new File("drawing.png");
+            ImageIO.write(img, "png", output);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
@@ -192,10 +213,14 @@ public class D2 extends JPanel {
         textbutton.setBackground(Color.white);
 
         Icon save = new ImageIcon("assets/save.png");
-        JButton savebutton = new JButton(save);
-        savebutton.setBounds(35, 150, 60, 45);
-        panel.add(savebutton);
-        savebutton.setBackground(Color.white);
+        JButton saveButton = new JButton(save);
+        saveButton.setBounds(35, 150, 60, 45);
+        panel.add(saveButton);
+        saveButton.setBackground(Color.white);
+
+        saveButton.addActionListener(e -> {
+            drawingPanel.saveImage();
+        });
 
         Icon wand = new ImageIcon("assets/wand.png");
         JButton wandbutton = new JButton(wand);
@@ -399,6 +424,10 @@ public class D2 extends JPanel {
             } else {
                 addMouseMotionListener(this);
             }
+        }
+
+        public void mouseReleased(MouseEvent event) {
+            removeMouseMotionListener(this);
         }
 
         /**
