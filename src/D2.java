@@ -13,12 +13,10 @@ import java.util.ArrayList;
 // ferris
 
 import javax.swing.*;
-
 import java.awt.Dimension;
 import java.awt.event.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
 
